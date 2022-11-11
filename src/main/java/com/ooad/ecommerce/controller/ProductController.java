@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+  @Autowired private ProductService productService;
 
-    @GetMapping
-    public ProductDto getProductDetails(){
-
-    }
+  @GetMapping
+  public ProductDto getProductDetails() {}
 }
