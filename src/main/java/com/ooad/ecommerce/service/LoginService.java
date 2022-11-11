@@ -8,17 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserInfoRepository userInfoRepository;
+  @Autowired private UserRepository userRepository;
+  @Autowired private UserInfoRepository userInfoRepository;
 
+  private boolean login() {}
 
-    private boolean login(){
-
-    }
-
-    private boolean signup(){
-
-    }
+  private boolean signup() {}
 }

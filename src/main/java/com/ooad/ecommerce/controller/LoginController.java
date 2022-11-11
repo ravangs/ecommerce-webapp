@@ -8,16 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    @Autowired
-    private LoginService loginService;
+  @Autowired private LoginService loginService;
 
-    @GetMapping
-    public boolean login(){
+  @GetMapping
+  public boolean login() {}
 
-    }
-
-    @GetMapping
-    public boolean signup(){
-
-    }
+  @GetMapping
+  public boolean signup() {}
 }
