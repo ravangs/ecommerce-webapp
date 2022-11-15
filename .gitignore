@@ -874,7 +874,6 @@ nbdist/
 .nb-gradle/
 
 ### Clojure template
-pom.xml
 pom.xml.asc
 *.jar
 *.class
