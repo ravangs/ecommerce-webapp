@@ -9,7 +9,6 @@ import com.ooad.ecommerce.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -56,29 +55,19 @@ public class FavouriteService implements FavouriteRepository {
   }
 
   @Override
-  public void deleteById(FavouriteId favouriteId) {
-
-  }
+  public void deleteById(FavouriteId favouriteId) {}
 
   @Override
-  public void delete(Favourite entity) {
-
-  }
+  public void delete(Favourite entity) {}
 
   @Override
-  public void deleteAllById(Iterable<? extends FavouriteId> favouriteIds) {
-
-  }
+  public void deleteAllById(Iterable<? extends FavouriteId> favouriteIds) {}
 
   @Override
-  public void deleteAll(Iterable<? extends Favourite> entities) {
-
-  }
+  public void deleteAll(Iterable<? extends Favourite> entities) {}
 
   @Override
-  public void deleteAll() {
-
-  }
+  public void deleteAll() {}
 
   @Override
   public <S extends Favourite> S save(S entity) {
@@ -101,9 +90,7 @@ public class FavouriteService implements FavouriteRepository {
   }
 
   @Override
-  public void flush() {
-
-  }
+  public void flush() {}
 
   @Override
   public <S extends Favourite> S saveAndFlush(S entity) {
@@ -116,19 +103,13 @@ public class FavouriteService implements FavouriteRepository {
   }
 
   @Override
-  public void deleteAllInBatch(Iterable<Favourite> entities) {
-
-  }
+  public void deleteAllInBatch(Iterable<Favourite> entities) {}
 
   @Override
-  public void deleteAllByIdInBatch(Iterable<FavouriteId> favouriteIds) {
-
-  }
+  public void deleteAllByIdInBatch(Iterable<FavouriteId> favouriteIds) {}
 
   @Override
-  public void deleteAllInBatch() {
-
-  }
+  public void deleteAllInBatch() {}
 
   @Override
   public Favourite getOne(FavouriteId favouriteId) {
@@ -176,7 +157,8 @@ public class FavouriteService implements FavouriteRepository {
   }
 
   @Override
-  public <S extends Favourite, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction) {
+  public <S extends Favourite, R> R findBy(
+      Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction) {
     return null;
   }
 }
