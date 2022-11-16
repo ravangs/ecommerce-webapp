@@ -11,7 +11,11 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class CustomerView extends CustomerController {
 
-  private List<Product> getProductsList() {}
+  private List<Product> getProductsList() {
+    return null;
+  }
 
-  private UserInfoDto getUserDetails() {}
+  public UserInfoDto getUserDetails() {
+    return null;
+  }
 }

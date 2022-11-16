@@ -20,7 +20,11 @@ public class VendorService {
 
   private void updateProduct() {}
 
-  private List<ProductDto> getMyProducts() {}
+  private List<ProductDto> getMyProducts() {
+    return null;
+  }
 
-  private UserInfoDto getUserDetails() {}
+  private UserInfoDto getUserDetails() {
+    return null;
+  }
 }

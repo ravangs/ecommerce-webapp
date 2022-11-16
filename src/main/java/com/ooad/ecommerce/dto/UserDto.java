@@ -1,7 +1,6 @@
 package com.ooad.ecommerce.dto;
 
 import com.ooad.ecommerce.model.User;
-import com.ooad.ecommerce.view.LoginView;
 import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto extends LoginView implements Serializable {
+public class UserDto implements Serializable {
   private Integer id;
 
   @Size(max = 63)

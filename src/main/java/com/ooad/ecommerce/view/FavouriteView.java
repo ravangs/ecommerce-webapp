@@ -10,7 +10,11 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class FavouriteView extends FavouriteController {
 
-  private List<FavouriteDto> getFavourites() {}
+  private List<FavouriteDto> getFavourites() {
+    return null;
+  }
 
-  private boolean updateFavourites() {}
+  private boolean updateFavourites() {
+    return false;
+  }
 }

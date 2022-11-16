@@ -11,7 +11,11 @@ public class LoginService {
   @Autowired private UserRepository userRepository;
   @Autowired private UserInfoRepository userInfoRepository;
 
-  private boolean login() {}
+  private boolean login() {
+    return false;
+  }
 
-  private boolean signup() {}
+  private boolean signup() {
+    return false;
+  }
 }

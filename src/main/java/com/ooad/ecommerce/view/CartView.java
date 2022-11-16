@@ -1,8 +1,6 @@
 package com.ooad.ecommerce.view;
 
 import com.ooad.ecommerce.controller.CartController;
-import com.ooad.ecommerce.dto.CartDto;
-import java.util.List;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +8,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class CartView extends CartController {
 
-  private List<CartDto> getCartDetails() {}
-
-  private boolean putCartDetails() {}
+  private boolean putCartDetails() {
+    return false;
+  }
 }

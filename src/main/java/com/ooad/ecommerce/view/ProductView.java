@@ -9,5 +9,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class ProductView extends ProductController {
 
-  public ProductDto getProductDetails() {}
+  public ProductDto getProductDetails() {
+    return null;
+  }
 }
