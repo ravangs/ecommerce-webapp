@@ -14,7 +14,11 @@ public class CustomerService {
   @Autowired private UserRepository userRepository;
   @Autowired private UserInfoRepository userInfoRepository;
 
-  private List<Product> findProducts() {}
+  private List<Product> findProducts() {
+    return null;
+  }
 
-  private UserInfoDto getUserDetails() {}
+  private UserInfoDto getUserDetails() {
+    return null;
+  }
 }

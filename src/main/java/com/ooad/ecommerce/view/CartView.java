@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class CartView extends CartController {
 
-  private List<CartDto> getCartDetails() {}
-
-  private boolean putCartDetails() {}
+  private boolean putCartDetails() {
+    return false;
+  }
 }

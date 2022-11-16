@@ -12,9 +12,11 @@ public class FavouriteController {
 
   @Autowired private VendorService vendorService;
 
-  @GetMapping
-  public List<FavouriteDto> getFavouriteDetails() {}
+//  @GetMapping
+//  public List<FavouriteDto> getFavouriteDetails() {
+//    return null;
+//  }
 
-  @GetMapping
-  public void updateFavouriteDetails() {}
+//  @GetMapping
+//  public void updateFavouriteDetails() {}
 }

@@ -13,15 +13,19 @@ public class VendorController {
 
   @Autowired private VendorService vendorService;
 
-  @GetMapping
-  public void addProduct() {}
+//  @GetMapping
+//  public void addProduct() {}
 
-  @GetMapping
-  public void updateProduct() {}
-
-  @GetMapping
-  public List<ProductDto> getMyProducts() {}
-
-  @GetMapping
-  public UserInfoDto getUserDetails() {}
+//  @GetMapping
+//  public void updateProduct() {}
+//
+//  @GetMapping
+//  public List<ProductDto> getMyProducts() {
+//    return null;
+//  }
+//
+//  @GetMapping
+//  public UserInfoDto getUserDetails() {
+//    return null;
+//  }
 }

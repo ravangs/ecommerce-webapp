@@ -10,5 +10,7 @@ public class ProductService {
 
   @Autowired private ProductRepository productRepository;
 
-  public ProductDto getProductDetails() {}
+  public ProductDto getProductDetails() {
+    return null;
+  }
 }

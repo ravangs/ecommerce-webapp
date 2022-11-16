@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class OrderView extends OrderController {
 
-  private void placeOrder() {}
+  public void placeOrder() {}
 }

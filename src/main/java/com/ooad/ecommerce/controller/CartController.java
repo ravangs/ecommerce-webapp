@@ -15,9 +15,11 @@ public class CartController {
 
   @Autowired private CustomerService customerService;
 
-  @GetMapping
-  public List<CartDto> getCartDetails() {}
+//  @GetMapping("/cart")
+//  public List<CartDto> getCartDetails() {
+//    return null;
+//  }
 
-  @GetMapping
-  public void updateCartDetails() {}
+//  @GetMapping
+//  public void updateCartDetails() {}
 }

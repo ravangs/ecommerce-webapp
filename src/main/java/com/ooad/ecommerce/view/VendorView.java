@@ -15,7 +15,11 @@ public class VendorView extends VendorController {
 
   private void putProduct() {}
 
-  private List<ProductDto> getMyProducts() {}
+  public List<ProductDto> getMyProducts() {
+    return null;
+  }
 
-  private UserInfoDto getUserDetails() {}
+  public UserInfoDto getUserDetails() {
+    return null;
+  }
 }

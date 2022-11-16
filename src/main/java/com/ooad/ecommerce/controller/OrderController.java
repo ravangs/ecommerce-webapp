@@ -10,6 +10,6 @@ public class OrderController {
 
   @Autowired private OrderService orderService;
 
-  @GetMapping
-  public void placeOrder() {}
+//  @GetMapping
+//  public void placeOrder() {}
 }

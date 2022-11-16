@@ -8,7 +8,11 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class LoginView extends LoginController {
 
-  private boolean login() {}
+  private boolean login() {
+    return false;
+  }
 
-  private boolean addUser() {}
+  private boolean addUser() {
+    return false;
+  }
 }
