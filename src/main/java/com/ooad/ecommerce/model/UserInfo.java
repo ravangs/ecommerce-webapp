@@ -1,13 +1,12 @@
 package com.ooad.ecommerce.model;
 
-import com.ooad.ecommerce.view.CustomerView;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user_info", schema = "ecommerce")
-public class UserInfo extends CustomerView {
+public class UserInfo {
   @Id
   @Column(name = "user_id", nullable = false)
   private Integer id;

@@ -1,27 +1,32 @@
 package com.ooad.ecommerce.controller;
 
+import com.ooad.ecommerce.dto.ProductDto;
+import com.ooad.ecommerce.dto.UserInfoDto;
 import com.ooad.ecommerce.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/v1/api")
 public class VendorController {
 
   @Autowired private VendorService vendorService;
 
-  //  @GetMapping
-  //  public void addProduct() {}
+    @PostMapping("/product")
+    public void addProduct() {}
 
-  //  @GetMapping
-  //  public void updateProduct() {}
-  //
-  //  @GetMapping
-  //  public List<ProductDto> getMyProducts() {
-  //    return null;
-  //  }
-  //
-  //  @GetMapping
-  //  public UserInfoDto getUserDetails() {
-  //    return null;
-  //  }
+    @PutMapping("/product")
+    public void updateProduct() {}
+
+    @GetMapping("/user/products/{userId}")
+    public List<ProductDto> getMyProducts(@PathVariable String userId) {
+      return null;
+    }
+
+    @GetMapping("/user/{userId}")
+    public UserInfoDto getUserDetails(@PathVariable String userId) {
+      return null;
+    }
 }

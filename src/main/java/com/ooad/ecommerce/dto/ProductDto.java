@@ -2,19 +2,19 @@ package com.ooad.ecommerce.dto;
 
 import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.model.UserInfo;
-import com.ooad.ecommerce.view.CustomerView;
-import java.io.Serializable;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /** A DTO for the {@link Product} entity */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDto extends CustomerView implements Serializable {
+public class ProductDto implements Serializable {
   private Integer id;
 
   @Size(max = 127)
