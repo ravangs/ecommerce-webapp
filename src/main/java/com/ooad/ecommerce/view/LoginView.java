@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
-public class LoginView{
+public class LoginView {
 
   private boolean login() {
     return false;

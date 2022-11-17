@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
-public class ProductView{
+public class ProductView {
 
   public ProductDto getProductDetails() {
     return null;

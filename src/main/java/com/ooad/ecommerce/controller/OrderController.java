@@ -12,6 +12,6 @@ public class OrderController {
 
   @Autowired private OrderService orderService;
 
-    @PostMapping("/order")
-    public void placeOrder() {}
+  @PostMapping("/order")
+  public void placeOrder() {}
 }

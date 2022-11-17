@@ -12,13 +12,13 @@ public class LoginController {
 
   @Autowired private LoginService loginService;
 
-    @PostMapping("/login")
-    public boolean login() {
-      return false;
-    }
+  @PostMapping("/login")
+  public boolean login() {
+    return false;
+  }
 
-    @PostMapping("/signup")
-    public boolean signup() {
-      return false;
-    }
+  @PostMapping("/signup")
+  public boolean signup() {
+    return false;
+  }
 }

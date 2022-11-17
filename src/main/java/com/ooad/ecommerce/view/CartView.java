@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
-public class CartView{
+public class CartView {
 
   private boolean putCartDetails() {
     return false;
