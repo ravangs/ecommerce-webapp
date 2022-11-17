@@ -11,15 +11,15 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 public class SecurityConfiguration extends VaadinWebSecurity {
 
-    public static final String LOGOUT_URL = "/";
+  public static final String LOGOUT_URL = "/";
 
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-
-        http.authorizeRequests().requestMatchers(new AntPathRequestMatcher("/images/*.png")).permitAll();
-        super.configure(http);
-        setLoginView(http, LoginView.class, LOGOUT_URL);
-    }
-
+    http.authorizeRequests()
+        .requestMatchers(new AntPathRequestMatcher("/images/*.png"))
+        .permitAll();
+    super.configure(http);
+    setLoginView(http, LoginView.class, LOGOUT_URL);
+  }
 }

@@ -1,15 +1,15 @@
 package com.ooad.ecommerce.model;
 
+import java.time.Instant;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.Instant;
 
 @Entity
 @Table(
     name = "`order`",
     schema = "ecommerce",
     indexes = {@Index(name = "order_user_id_index", columnList = "user_id")})
-public class Order{
+public class Order {
   @Id
   @Column(name = "order_id", nullable = false)
   private Integer id;
