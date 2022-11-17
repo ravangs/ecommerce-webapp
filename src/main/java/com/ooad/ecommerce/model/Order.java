@@ -1,6 +1,5 @@
 package com.ooad.ecommerce.model;
 
-import com.ooad.ecommerce.view.OrderView;
 import java.time.Instant;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,7 +9,7 @@ import javax.validation.constraints.NotNull;
     name = "`order`",
     schema = "ecommerce",
     indexes = {@Index(name = "order_user_id_index", columnList = "user_id")})
-public class Order extends OrderView {
+public class Order {
   @Id
   @Column(name = "order_id", nullable = false)
   private Integer id;

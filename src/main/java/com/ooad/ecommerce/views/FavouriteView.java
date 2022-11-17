@@ -1,13 +1,13 @@
-package com.ooad.ecommerce.view;
+package com.ooad.ecommerce.views;
 
 import com.ooad.ecommerce.dto.FavouriteDto;
+import com.vaadin.flow.router.Route;
 import java.util.List;
-import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
-@NoArgsConstructor
+@Route
 public class FavouriteView {
+
+  public FavouriteView() {}
 
   private List<FavouriteDto> getFavourites() {
     return null;

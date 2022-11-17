@@ -1,6 +1,7 @@
 package com.ooad.ecommerce.service;
 
-import com.ooad.ecommerce.repository.*;
+import com.ooad.ecommerce.repository.CartRepository;
+import com.ooad.ecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

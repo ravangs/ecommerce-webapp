@@ -1,6 +1,5 @@
 package com.ooad.ecommerce.service;
 
-import com.ooad.ecommerce.dto.UserInfoDto;
 import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.repository.UserInfoRepository;
 import com.ooad.ecommerce.repository.UserRepository;
@@ -15,10 +14,6 @@ public class CustomerService {
   @Autowired private UserInfoRepository userInfoRepository;
 
   private List<Product> findProducts() {
-    return null;
-  }
-
-  private UserInfoDto getUserDetails() {
     return null;
   }
 }
