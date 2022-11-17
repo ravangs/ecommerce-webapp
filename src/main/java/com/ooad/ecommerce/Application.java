@@ -10,19 +10,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * The entry point of the Spring Boot application.
  *
- * Use the @PWA annotation make the application installable on phones, tablets
- * and some desktop browsers.
- *
+ * <p>Use the @PWA annotation make the application installable on phones, tablets and some desktop
+ * browsers.
  */
 @SpringBootApplication
 @Theme(value = "e-commerce")
-@PWA(name = "E-Commerce", shortName = "E-Commerce", offlineResources = {})
+@PWA(
+    name = "E-Commerce",
+    shortName = "E-Commerce",
+    offlineResources = {})
 @NpmPackage(value = "line-awesome", version = "1.3.0")
 @NpmPackage(value = "@vaadin-component-factory/vcf-nav", version = "1.0.6")
 public class Application implements AppShellConfigurator {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+  }
 }
