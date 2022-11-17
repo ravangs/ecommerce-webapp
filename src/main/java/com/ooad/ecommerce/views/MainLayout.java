@@ -4,9 +4,6 @@ import com.ooad.ecommerce.components.appnav.AppNav;
 import com.ooad.ecommerce.components.appnav.AppNavItem;
 import com.ooad.ecommerce.model.User;
 import com.ooad.ecommerce.security.AuthenticatedUser;
-import com.ooad.ecommerce.views.about.AboutView;
-import com.ooad.ecommerce.views.empty.EmptyView;
-import com.ooad.ecommerce.views.helloworld.HelloWorldView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
@@ -16,11 +13,9 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
-import java.io.ByteArrayInputStream;
 import java.util.Optional;
 
 /**
@@ -67,14 +62,6 @@ public class MainLayout extends AppLayout {
         // For documentation, visit https://github.com/vaadin/vcf-nav#readme
         AppNav nav = new AppNav();
 
-        if (accessChecker.hasAccess(HelloWorldView.class)) {
-            nav.addItem(new AppNavItem("Hello World", HelloWorldView.class, "la la-globe"));
-
-        }
-        if (accessChecker.hasAccess(AboutView.class)) {
-            nav.addItem(new AppNavItem("About", AboutView.class, "la la-file"));
-
-        }
         if (accessChecker.hasAccess(EmptyView.class)) {
             nav.addItem(new AppNavItem("Empty", EmptyView.class, "la la-file"));
 
