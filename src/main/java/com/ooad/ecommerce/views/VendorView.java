@@ -1,14 +1,16 @@
-package com.ooad.ecommerce.view;
+package com.ooad.ecommerce.views;
 
 import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.dto.UserInfoDto;
-import java.util.List;
-import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
+import com.vaadin.flow.router.Route;
 
-@Component
-@NoArgsConstructor
+import java.util.List;
+
+@Route
 public class VendorView {
+
+  public VendorView() {
+  }
 
   private void postProduct() {}
 

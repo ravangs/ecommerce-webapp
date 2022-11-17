@@ -4,11 +4,12 @@ import com.ooad.ecommerce.model.Cart;
 import com.ooad.ecommerce.model.CartId;
 import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.model.UserInfo;
-import java.io.Serializable;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /** A DTO for the {@link Cart} entity */
 @Data
