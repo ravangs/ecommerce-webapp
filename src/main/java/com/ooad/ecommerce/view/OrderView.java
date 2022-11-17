@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
-public class OrderView{
+public class OrderView {
 
   public void placeOrder() {}
 }

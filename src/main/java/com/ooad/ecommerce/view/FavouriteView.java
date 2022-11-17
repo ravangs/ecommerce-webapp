@@ -1,14 +1,13 @@
 package com.ooad.ecommerce.view;
 
 import com.ooad.ecommerce.dto.FavouriteDto;
+import java.util.List;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 @NoArgsConstructor
-public class FavouriteView{
+public class FavouriteView {
 
   private List<FavouriteDto> getFavourites() {
     return null;
