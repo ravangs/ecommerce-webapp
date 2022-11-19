@@ -33,28 +33,33 @@ public class VendorView extends VerticalLayout {
     List<ProductDto> products = vendorController.getMyProducts(1);
     Div cards = new Div();
     cards.addClassName("row");
-    for (int i = 0; i < 10; i++) {
-      cards.add(createColumn());
+    for (ProductDto product : products) {
+      cards.add(createColumn(product));
     }
+    //    for (int i = 0; i < 10; i++) {
+    //      cards.add(createColumn());
+    //    }
     add(cards, plusButton);
   }
 
-  private Component createColumn() {
+  private Component createColumn(ProductDto product) {
     Div col = new Div();
     col.addClassName("column");
-    col.add(createCard());
+    col.add(createCard(product));
     return col;
   }
 
-  private Component createCard() {
+  private Component createCard(ProductDto product) {
     Div card = new Div();
+    String imgPath = "images/" + product.getProductImagePath();
+    imgPath = imgPath.replaceAll("[\uFEFF-\uFFFF]", "");
     Div container = new Div();
     Image img = new Image();
-    img.setSrc("icons/icon.png");
+    img.setSrc(imgPath);
     img.addClassName("product-image");
     container.add(img);
-    container.add(new H4("Product Name"));
-    container.add(new Paragraph("Description"));
+    container.add(new H4(product.getProductName()));
+    container.add(new Paragraph(String.valueOf(product.getCost())));
     container.addClassName("container");
     card.add(container);
     card.addClassName("card");
