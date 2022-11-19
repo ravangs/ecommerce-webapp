@@ -6,8 +6,7 @@ public class PlainTextPasswordEncoder implements PasswordEncoder {
 
   private static final PasswordEncoder INSTANCE = new PlainTextPasswordEncoder();
 
-  private PlainTextPasswordEncoder() {
-  }
+  private PlainTextPasswordEncoder() {}
 
   public static PasswordEncoder getInstance() {
     return INSTANCE;
