@@ -14,7 +14,6 @@ import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
 import com.vaadin.flow.theme.lumo.LumoUtility;
-
 import java.util.Optional;
 
 /** The main view is a top-level placeholder for other views. */
