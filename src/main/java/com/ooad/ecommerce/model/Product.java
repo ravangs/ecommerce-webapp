@@ -26,12 +26,12 @@ public class Product {
 
   @NotNull
   @Column(name = "product_info", nullable = false)
+  @Lob
   private byte[] productInfo;
 
   @NotNull
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "vendor_id", nullable = false)
-  private User vendor;
+  @Column(name = "vendor_id", nullable = false)
+  private Integer vendorId;
 
   @NotNull
   @Column(name = "stock", nullable = false)
@@ -72,12 +72,12 @@ public class Product {
     this.productInfo = productInfo;
   }
 
-  public User getVendor() {
-    return vendor;
+  public Integer getVendorId() {
+    return vendorId;
   }
 
-  public void setVendor(User vendor) {
-    this.vendor = vendor;
+  public void setVendorId(Integer vendor) {
+    this.vendorId = vendor;
   }
 
   public Integer getStock() {

@@ -18,8 +18,8 @@ public class VendorController {
   @PutMapping("/product")
   public void updateProduct() {}
 
-  @GetMapping("/user/products/{userId}")
-  public List<ProductDto> getMyProducts(@PathVariable String userId) {
-    return null;
+  @GetMapping(value = "/user/products/{userId}", produces = "application/json")
+  public List<ProductDto> getMyProducts(@PathVariable Integer userId) {
+    return vendorService.getMyProducts(userId);
   }
 }

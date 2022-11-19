@@ -1,5 +1,6 @@
 package com.ooad.ecommerce.views;
 
+import com.ooad.ecommerce.controller.VendorController;
 import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.dto.UserInfoDto;
 import com.vaadin.flow.component.Component;
@@ -17,6 +18,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import java.util.List;
 import javax.annotation.security.PermitAll;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Buffkart - Vendor")
 @Route(value = "vendor", layout = MainLayout.class)
@@ -24,11 +26,11 @@ import javax.annotation.security.PermitAll;
 @PermitAll
 public class VendorView extends VerticalLayout {
 
-  public VendorView() {
+  public VendorView(@Autowired VendorController vendorController) {
     Button plusButton = new Button(new Icon(VaadinIcon.PLUS));
     plusButton.addThemeVariants(ButtonVariant.LUMO_ICON);
     plusButton.setText("Add Product");
-
+    List<ProductDto> products = vendorController.getMyProducts(1);
     Div cards = new Div();
     cards.addClassName("row");
     for (int i = 0; i < 10; i++) {
