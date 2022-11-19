@@ -16,10 +16,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.annotation.security.PermitAll;
 import java.util.List;
+import javax.annotation.security.PermitAll;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Buffkart - Vendor")
 @Route(value = "vendor", layout = MainLayout.class)

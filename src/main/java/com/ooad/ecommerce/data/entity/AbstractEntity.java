@@ -1,11 +1,10 @@
 package com.ooad.ecommerce.data.entity;
 
-import org.hibernate.annotations.Type;
-
+import java.util.UUID;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import java.util.UUID;
+import org.hibernate.annotations.Type;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
