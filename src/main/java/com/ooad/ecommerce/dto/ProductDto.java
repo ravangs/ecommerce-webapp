@@ -1,18 +1,20 @@
 package com.ooad.ecommerce.dto;
 
 import com.ooad.ecommerce.model.Product;
-import com.ooad.ecommerce.model.UserInfo;
-import java.io.Serializable;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /** A DTO for the {@link Product} entity */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ProductDto implements Serializable {
   private Integer id;
 
@@ -20,10 +22,10 @@ public class ProductDto implements Serializable {
   @NotNull
   private String productName;
 
-  @NotNull private byte[] productInfo;
-  @NotNull private UserInfo vendor;
+  @NotNull private String productInfo;
+  @NotNull private Integer vendorId;
   @NotNull private Integer stock;
   @NotNull private Double cost;
   private Integer discount;
-  @NotNull private byte[] productImagePath;
+  @NotNull private String productImagePath;
 }
