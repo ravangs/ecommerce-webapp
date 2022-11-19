@@ -18,9 +18,10 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 import java.util.Optional;
 
 /** The main view is a top-level placeholder for other views. */
+@SuppressWarnings("ALL")
 public class MainLayout extends AppLayout {
 
-  private H2 viewTitle;
+  private H1 appName;
 
   private AuthenticatedUser authenticatedUser;
   private AccessAnnotationChecker accessChecker;
@@ -30,44 +31,21 @@ public class MainLayout extends AppLayout {
     this.accessChecker = accessChecker;
 
     setPrimarySection(Section.DRAWER);
-    addDrawerContent();
+//    addDrawerContent();
     addHeaderContent();
   }
 
   private void addHeaderContent() {
-    DrawerToggle toggle = new DrawerToggle();
-    toggle.getElement().setAttribute("aria-label", "Menu toggle");
 
-    viewTitle = new H2();
-    viewTitle.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
+    appName = new H1("Buffkart");
+    appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE, "header-color");
 
-    addToNavbar(true, toggle, viewTitle);
-  }
-
-  private void addDrawerContent() {
-    H1 appName = new H1("E-Commerce");
-    appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
-    Header header = new Header(appName);
-
-    Scroller scroller = new Scroller(createNavigation());
-
-    addToDrawer(header, scroller, createFooter());
-  }
-
-  private AppNav createNavigation() {
-    // AppNav is not yet an official component.
-    // For documentation, visit https://github.com/vaadin/vcf-nav#readme
-    AppNav nav = new AppNav();
-
-    if (accessChecker.hasAccess(EmptyView.class)) {
-      nav.addItem(new AppNavItem("Empty", EmptyView.class, "la la-file"));
-    }
-
-    return nav;
+    addToNavbar(true, appName, createFooter());
   }
 
   private Footer createFooter() {
     Footer layout = new Footer();
+    layout.addClassNames("user-icon");
 
     Optional<User> maybeUser = authenticatedUser.get();
     if (maybeUser.isPresent()) {
@@ -110,7 +88,7 @@ public class MainLayout extends AppLayout {
   @Override
   protected void afterNavigation() {
     super.afterNavigation();
-    viewTitle.setText(getCurrentPageTitle());
+//    viewTitle.setText(getCurrentPageTitle());
   }
 
   private String getCurrentPageTitle() {

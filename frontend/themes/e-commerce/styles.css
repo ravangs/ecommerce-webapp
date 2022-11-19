@@ -1,3 +1,52 @@
 @import url('./main-layout.css');
 @import url('./views/person-form-view.css');
 @import url('line-awesome/dist/line-awesome/css/line-awesome.min.css');
+
+vaadin-app-layout[primary-section="drawer"]::part(navbar) {
+    background-color: #CFB87C;
+    font-size: 16px;
+}
+
+.user-icon {
+    margin-left: auto;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.product-image {
+    height: 20rem;
+    max-width: 100%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+
+.column {
+    float: left;
+    width: 23%;
+    padding: 1rem;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+    width: 100%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
