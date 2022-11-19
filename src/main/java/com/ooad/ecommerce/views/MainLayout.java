@@ -1,17 +1,13 @@
 package com.ooad.ecommerce.views;
 
-import com.ooad.ecommerce.components.appnav.AppNav;
-import com.ooad.ecommerce.components.appnav.AppNavItem;
 import com.ooad.ecommerce.model.User;
 import com.ooad.ecommerce.security.AuthenticatedUser;
 import com.vaadin.flow.component.applayout.AppLayout;
-import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.menubar.MenuBar;
-import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
 import com.vaadin.flow.theme.lumo.LumoUtility;
@@ -31,7 +27,7 @@ public class MainLayout extends AppLayout {
     this.accessChecker = accessChecker;
 
     setPrimarySection(Section.DRAWER);
-//    addDrawerContent();
+    //    addDrawerContent();
     addHeaderContent();
   }
 
@@ -88,7 +84,7 @@ public class MainLayout extends AppLayout {
   @Override
   protected void afterNavigation() {
     super.afterNavigation();
-//    viewTitle.setText(getCurrentPageTitle());
+    //    viewTitle.setText(getCurrentPageTitle());
   }
 
   private String getCurrentPageTitle() {

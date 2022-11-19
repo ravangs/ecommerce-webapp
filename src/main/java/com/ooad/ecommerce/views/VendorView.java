@@ -15,9 +15,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
-
-import javax.annotation.security.PermitAll;
 import java.util.List;
+import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Vendor")
 @Route(value = "vendor", layout = MainLayout.class)
@@ -32,7 +31,7 @@ public class VendorView extends VerticalLayout {
 
     Div cards = new Div();
     cards.addClassName("row");
-    for(int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
       cards.add(createColumn());
     }
     add(cards, plusButton);
@@ -44,7 +43,6 @@ public class VendorView extends VerticalLayout {
     col.add(createCard());
     return col;
   }
-
 
   private Component createCard() {
     Div card = new Div();
