@@ -2,7 +2,6 @@ package com.ooad.ecommerce.views;
 
 import com.ooad.ecommerce.controller.ProductController;
 import com.ooad.ecommerce.dto.ProductDto;
-import com.ooad.ecommerce.model.Product;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
