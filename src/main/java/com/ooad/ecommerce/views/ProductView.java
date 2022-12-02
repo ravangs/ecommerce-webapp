@@ -1,27 +1,81 @@
 package com.ooad.ecommerce.views;
 
+import com.ooad.ecommerce.controller.ProductController;
 import com.ooad.ecommerce.dto.ProductDto;
-import com.vaadin.flow.component.html.H1;
+import com.ooad.ecommerce.model.Product;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import javax.annotation.security.PermitAll;
 
-@Route("product/:product_id")
+@PageTitle("Buffkart - Product")
+@Route(value = "product/:product_id", layout = MainLayout.class)
 @PermitAll
 public class ProductView extends VerticalLayout implements BeforeEnterObserver {
 
-  String productId;
+  Integer productId;
+  ProductController productController;
 
-  ProductView() {
-    add(new H1("Product " + productId));
+  ProductView(ProductController productController) {
+    this.productController = productController;
   }
 
   @Override
   public void beforeEnter(BeforeEnterEvent event) {
-    productId = event.getRouteParameters().get("product_id").get();
+    productId = Integer.valueOf(event.getRouteParameters().get("product_id").get());
+    renderProductPage();
   }
 
-  public ProductDto getProductDetails() {
-    return null;
+  public void renderProductPage() {
+    ProductDto product = this.getProductDetails(this.productId);
+    Div container = new Div();
+    container.addClassName("product-container");
+    container.add(renderProductImage(product), renderProductDetails(product));
+    add(container);
+  }
+
+  public Div renderProductImage(ProductDto product) {
+    Div leftPanel = new Div();
+    leftPanel.addClassName("left-column");
+    String imgPath = "images/" + product.getProductImagePath();
+    imgPath = imgPath.replaceAll("[\uFEFF-\uFFFF]", "");
+    Image img = new Image();
+    img.setSrc(imgPath);
+    leftPanel.add(img);
+    img.addClassName("product-image");
+    return leftPanel;
+  }
+
+  public Div renderProductDetails(ProductDto product) {
+    Div rightPanel = new Div();
+    rightPanel.addClassName("right-column");
+    Div productDetails = new Div();
+    productDetails.addClassName("product-description");
+    productDetails.add(new H1(product.getProductName()));
+    productDetails.add(new H3(product.getProductInfo()));
+    productDetails.add(new H2("Cost: " + product.getCost()));
+    rightPanel.add(productDetails);
+    return rightPanel;
+  }
+
+//  <div class="right-column">
+//
+//    <!-- Product Description -->
+//    <div class="product-description">
+//      <span>Headphones</span>
+//  <h1>Beats EP</h1>
+//  <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+//    </div>
+//
+//
+//    <!-- Product Pricing -->
+//    <div class="product-price">
+//      <span>148$</span>
+//      <a href="#" class="cart-btn">Add to cart</a>
+//    </div>
+//  </div>
+
+  public ProductDto getProductDetails(Integer productId) {
+    return this.productController.getProductDetails(productId);
   }
 }

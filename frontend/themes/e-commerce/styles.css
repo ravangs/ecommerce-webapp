@@ -17,7 +17,7 @@ vaadin-app-layout[primary-section="drawer"]::part(navbar) {
     transition: 0.3s;
 }
 
-.product-image {
+.product-catalog-image {
     height: 20rem;
     max-width: 100%;
 }
@@ -49,4 +49,50 @@ vaadin-app-layout[primary-section="drawer"]::part(navbar) {
     content: "";
     display: table;
     clear: both;
+}
+
+.product-container {
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+/* Columns */
+.left-column {
+    position: relative;
+    width: 50%;
+}
+
+.left-column .product-image {
+    width: 90%;
+}
+
+.right-column {
+    margin-top: 1rem;
+    width: 50%;
+}
+
+/* Product Description */
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+}
+.product-description span {
+    font-size: 12px;
+    color: #358ED7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.product-description h1 {
+    font-weight: 300;
+    font-size: 52px;
+    color: #43484D;
+    letter-spacing: -2px;
+}
+.product-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #86939E;
+    line-height: 24px;
 }
