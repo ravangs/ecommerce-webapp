@@ -1,24 +1,26 @@
 package com.ooad.ecommerce.service;
 
 import com.ooad.ecommerce.dto.ProductDto;
+import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.repository.ProductRepository;
-import com.ooad.ecommerce.repository.UserInfoRepository;
-import com.ooad.ecommerce.repository.UserRepository;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class VendorService {
 
-  @Autowired private UserRepository userRepository;
-  @Autowired private UserInfoRepository userInfoRepository;
   @Autowired private ProductRepository productRepository;
 
-  private void addProduct() {}
+  public Integer addProduct(ProductDto product) {
+    Product savedProduct = productRepository.save(product.convertDtoToEntity());
+    return savedProduct.getId();
+  }
 
-  private void updateProduct() {}
+  public Integer updateProduct(ProductDto product) {
+    Product updatedProduct = productRepository.save(product.convertDtoToEntity());
+    return updatedProduct.getId();
+  }
 
   public List<ProductDto> getMyProducts(Integer vendorId) {
     return productRepository.getProductsByVendorId(vendorId).stream()
@@ -34,6 +36,6 @@ public class VendorService {
                     .cost(product.getCost())
                     .discount(product.getDiscount())
                     .build())
-        .collect(Collectors.toList());
+        .toList();
   }
 }
