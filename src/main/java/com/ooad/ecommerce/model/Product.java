@@ -17,6 +17,7 @@ import javax.validation.constraints.Size;
 public class Product {
   @Id
   @Column(name = "product_id", nullable = false)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   @Size(max = 127)
