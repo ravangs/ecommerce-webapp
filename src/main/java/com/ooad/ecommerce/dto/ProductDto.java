@@ -28,9 +28,9 @@ public class ProductDto implements Serializable {
   private Integer discount;
   @NotNull private String productImagePath;
 
-  public Product convertDtoToEntity(){
+  public Product convertDtoToEntity() {
     Product product = new Product();
-    if(this.getId() != null){
+    if (this.getId() != null) {
       product.setId(this.getId());
     }
     product.setProductName(this.getProductName());
@@ -39,7 +39,8 @@ public class ProductDto implements Serializable {
     product.setStock(this.getStock());
     product.setCost(this.getCost());
     product.setDiscount(this.getDiscount());
-    product.setProductImagePath(this.getProductImagePath().replaceAll("[\uFEFF-\uFFFF]", "").getBytes());
+    product.setProductImagePath(
+        this.getProductImagePath().replaceAll("[\uFEFF-\uFFFF]", "").getBytes());
     return product;
   }
 }

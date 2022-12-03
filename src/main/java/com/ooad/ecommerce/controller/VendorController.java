@@ -13,12 +13,18 @@ public class VendorController {
 
   @Autowired private VendorService vendorService;
 
-  @PostMapping(value="/product",consumes = {MediaType.APPLICATION_JSON_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
+  @PostMapping(
+      value = "/product",
+      consumes = {MediaType.APPLICATION_JSON_VALUE},
+      produces = {MediaType.APPLICATION_JSON_VALUE})
   public Integer addProduct(@RequestBody ProductDto product) {
     return vendorService.addProduct(product);
   }
 
-  @PutMapping(value="/product",consumes = {MediaType.APPLICATION_JSON_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
+  @PutMapping(
+      value = "/product",
+      consumes = {MediaType.APPLICATION_JSON_VALUE},
+      produces = {MediaType.APPLICATION_JSON_VALUE})
   public Integer updateProduct(@RequestBody ProductDto product) {
     return vendorService.updateProduct(product);
   }
