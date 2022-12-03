@@ -49,9 +49,10 @@ public class VendorView extends VerticalLayout {
 
   private Component createCard(ProductDto product) {
     Div card = new Div();
-    card.addClickListener(e -> {
-      UI.getCurrent().navigate("product/" + product.getId());
-    });
+    card.addClickListener(
+        e -> {
+          UI.getCurrent().navigate("product/" + product.getId());
+        });
     String imgPath = "images/" + product.getProductImagePath();
     imgPath = imgPath.replaceAll("[\uFEFF-\uFFFF]", "");
     Div container = new Div();

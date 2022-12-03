@@ -1,7 +1,6 @@
 package com.ooad.ecommerce.controller;
 
 import com.ooad.ecommerce.dto.ProductDto;
-import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
