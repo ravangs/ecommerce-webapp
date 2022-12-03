@@ -4,6 +4,7 @@ import com.ooad.ecommerce.controller.VendorController;
 import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.dto.UserInfoDto;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
@@ -36,9 +37,6 @@ public class VendorView extends VerticalLayout {
     for (ProductDto product : products) {
       cards.add(createColumn(product));
     }
-    //    for (int i = 0; i < 10; i++) {
-    //      cards.add(createColumn());
-    //    }
     add(cards, plusButton);
   }
 
@@ -51,12 +49,16 @@ public class VendorView extends VerticalLayout {
 
   private Component createCard(ProductDto product) {
     Div card = new Div();
+    card.addClickListener(
+        e -> {
+          UI.getCurrent().navigate("product/" + product.getId());
+        });
     String imgPath = "images/" + product.getProductImagePath();
     imgPath = imgPath.replaceAll("[\uFEFF-\uFFFF]", "");
     Div container = new Div();
     Image img = new Image();
     img.setSrc(imgPath);
-    img.addClassName("product-image");
+    img.addClassName("product-catalog-image");
     container.add(img);
     container.add(new H4(product.getProductName()));
     container.add(new Paragraph(String.valueOf(product.getCost())));
