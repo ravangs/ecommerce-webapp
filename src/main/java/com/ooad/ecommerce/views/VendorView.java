@@ -20,7 +20,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import java.util.List;
 import javax.annotation.security.PermitAll;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Buffkart - Vendor")
 @Route(value = "vendor", layout = MainLayout.class)
@@ -32,9 +31,10 @@ public class VendorView extends VerticalLayout {
     Button plusButton = new Button(new Icon(VaadinIcon.PLUS));
     plusButton.addThemeVariants(ButtonVariant.LUMO_ICON);
     plusButton.setText("Add Product");
-    plusButton.addClickListener(e -> {
-      UI.getCurrent().navigate("new-product");
-    });
+    plusButton.addClickListener(
+        e -> {
+          UI.getCurrent().navigate("new-product");
+        });
     List<ProductDto> products = vendorController.getMyProducts(authService.getUserId());
     Div cards = new Div();
     cards.addClassName("row");
