@@ -3,6 +3,7 @@ package com.ooad.ecommerce.views;
 import com.ooad.ecommerce.controller.VendorController;
 import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.dto.UserInfoDto;
+import com.ooad.ecommerce.service.AuthService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -19,7 +20,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import java.util.List;
 import javax.annotation.security.PermitAll;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Buffkart - Vendor")
 @Route(value = "vendor", layout = MainLayout.class)
@@ -27,11 +27,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 @PermitAll
 public class VendorView extends VerticalLayout {
 
-  public VendorView(@Autowired VendorController vendorController) {
+  public VendorView(VendorController vendorController, AuthService authService) {
     Button plusButton = new Button(new Icon(VaadinIcon.PLUS));
     plusButton.addThemeVariants(ButtonVariant.LUMO_ICON);
     plusButton.setText("Add Product");
-    List<ProductDto> products = vendorController.getMyProducts(1);
+    plusButton.addClickListener(
+        e -> {
+          UI.getCurrent().navigate("new-product");
+        });
+    List<ProductDto> products = vendorController.getMyProducts(authService.getUserId());
     Div cards = new Div();
     cards.addClassName("row");
     for (ProductDto product : products) {
