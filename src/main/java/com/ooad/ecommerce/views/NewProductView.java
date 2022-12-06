@@ -1,4 +1,5 @@
 package com.ooad.ecommerce.views;
+
 import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.service.AuthService;
 import com.ooad.ecommerce.service.VendorService;
@@ -15,12 +16,10 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.PermitAll;
-import javax.imageio.ImageIO;
-import javax.validation.constraints.NotNull;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import javax.annotation.security.PermitAll;
+import javax.imageio.ImageIO;
 
 @PageTitle("Buffkart - New Product")
 @Route(value = "new-product", layout = MainLayout.class)
@@ -39,7 +38,6 @@ public class NewProductView extends VerticalLayout {
 
     binder = new Binder<>();
 
-
     TextField productName = new TextField("Product Name");
     TextArea productInfo = new TextArea("Description");
     TextField stock = new TextField("Stock");
@@ -57,20 +55,21 @@ public class NewProductView extends VerticalLayout {
 
     upload.setUploadButton(uploadButton);
 
-
-    upload.addSucceededListener(event -> {
-      fileName = event.getFileName();
-      inputStream = buffer.getInputStream(fileName);
-    });
+    upload.addSucceededListener(
+        event -> {
+          fileName = event.getFileName();
+          inputStream = buffer.getInputStream(fileName);
+        });
 
     FormLayout productForm = new FormLayout();
-    productForm.setResponsiveSteps(new FormLayout.ResponsiveStep("0",1));
+    productForm.setResponsiveSteps(new FormLayout.ResponsiveStep("0", 1));
     productForm.add(productName, productInfo, stock, cost);
     Button submitForm = new Button("Submit");
     submitForm.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
-    submitForm.addClickListener(event -> {
-      createProduct();
-    });
+    submitForm.addClickListener(
+        event -> {
+          createProduct();
+        });
 
     add(productForm, upload, submitForm);
   }
