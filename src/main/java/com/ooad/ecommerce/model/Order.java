@@ -1,8 +1,8 @@
 package com.ooad.ecommerce.model;
 
+import java.time.Instant;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.Instant;
 
 @Entity
 @Table(

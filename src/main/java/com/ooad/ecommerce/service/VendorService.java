@@ -3,10 +3,9 @@ package com.ooad.ecommerce.service;
 import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.repository.ProductRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class VendorService {

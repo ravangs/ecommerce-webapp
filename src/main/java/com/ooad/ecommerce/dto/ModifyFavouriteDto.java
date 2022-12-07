@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ModifyFavouriteDto {
-    private Integer productId;
-    private Integer userId;
+  private Integer productId;
+  private Integer userId;
 }

@@ -16,5 +16,4 @@ public class Favourite {
   public void setId(FavouriteId id) {
     this.id = id;
   }
-
 }
