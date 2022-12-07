@@ -1,6 +1,9 @@
 package com.ooad.ecommerce.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -10,11 +13,6 @@ public class UserInfo {
   @Id
   @Column(name = "user_id", nullable = false)
   private Integer id;
-
-  @MapsId
-  @OneToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "user_id", nullable = false)
-  private User user;
 
   @Size(max = 63)
   @NotNull
@@ -41,14 +39,6 @@ public class UserInfo {
 
   public void setId(Integer id) {
     this.id = id;
-  }
-
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
   }
 
   public String getFirstName() {

@@ -3,9 +3,9 @@ package com.ooad.ecommerce.dto;
 import com.ooad.ecommerce.model.Order;
 import com.ooad.ecommerce.model.OrderDetailId;
 import com.ooad.ecommerce.model.Product;
-import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDetailDto implements Serializable {
+@Builder
+public class OrderDetailDto {
   private OrderDetailId id;
   private Order order;
   private Product product;

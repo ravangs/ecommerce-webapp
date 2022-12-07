@@ -1,10 +1,12 @@
 package com.ooad.ecommerce.controller;
 
-import com.ooad.ecommerce.dto.CartDto;
+import com.ooad.ecommerce.dto.ModifyCartDto;
+import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.service.CartService;
-import com.ooad.ecommerce.service.CustomerService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,15 +15,21 @@ public class CartController {
 
   @Autowired private CartService cartService;
 
-  @Autowired private CustomerService customerService;
-
   @GetMapping("/cart/{userId}")
-  public List<CartDto> getCartDetails(@PathVariable String userId) {
-    return null;
+  public Map<Product, Integer> getCartDetails(@PathVariable Integer userId) {
+    return cartService.getCartDetails(userId);
   }
 
-  @PutMapping("/cart/{userId}")
-  public void updateCartDetails(@PathVariable String userId) {
-    /* TODO document why this method is empty */
+  @PostMapping(
+      value = "/cart",
+      consumes = {MediaType.APPLICATION_JSON_VALUE},
+      produces = {MediaType.APPLICATION_JSON_VALUE})
+  public Map<Product, Integer> modifyCart(@RequestBody List<ModifyCartDto> cartEntryDetails) {
+    return cartService.modifyCart(cartEntryDetails);
+  }
+
+  @PutMapping(value = "/cart/clear/{userId}")
+  public void clearCart(@PathVariable Integer userId) {
+    cartService.clearCart(userId);
   }
 }

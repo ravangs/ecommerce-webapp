@@ -1,6 +1,6 @@
 package com.ooad.ecommerce.views;
 
-import com.ooad.ecommerce.dto.FavouriteDto;
+import com.ooad.ecommerce.model.Product;
 import com.vaadin.flow.router.Route;
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class FavouriteView {
 
   public FavouriteView() {}
 
-  private List<FavouriteDto> getFavourites() {
+  private List<Product> getFavourites() {
     return null;
   }
 

@@ -17,7 +17,9 @@ import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import javax.annotation.security.PermitAll;
 import javax.imageio.ImageIO;
 
