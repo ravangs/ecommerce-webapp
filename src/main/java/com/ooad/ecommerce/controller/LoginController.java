@@ -17,9 +17,9 @@ public class LoginController {
   @Autowired private LoginService loginService;
 
   @PostMapping(
-          value = "/signup",
-          consumes = {MediaType.APPLICATION_JSON_VALUE},
-          produces = {MediaType.APPLICATION_JSON_VALUE})
+      value = "/signup",
+      consumes = {MediaType.APPLICATION_JSON_VALUE},
+      produces = {MediaType.APPLICATION_JSON_VALUE})
   public UserInfo signup(@RequestBody SignUpDto userDetails) {
     return loginService.signup(userDetails);
   }

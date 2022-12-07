@@ -2,11 +2,10 @@ package com.ooad.ecommerce.controller;
 
 import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.service.VendorService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/v1/api")

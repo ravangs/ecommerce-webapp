@@ -16,13 +16,12 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.PermitAll;
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.annotation.security.PermitAll;
+import javax.imageio.ImageIO;
 
 @PageTitle("Buffkart - New Product")
 @Route(value = "new-product", layout = MainLayout.class)

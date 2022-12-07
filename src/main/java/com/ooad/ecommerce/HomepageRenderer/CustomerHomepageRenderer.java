@@ -7,7 +7,6 @@ import com.ooad.ecommerce.views.CardLayoutHelper;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-
 import java.util.List;
 
 public class CustomerHomepageRenderer extends HorizontalLayout implements RenderBehavior {

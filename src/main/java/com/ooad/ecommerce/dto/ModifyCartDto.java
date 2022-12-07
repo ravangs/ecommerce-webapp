@@ -10,17 +10,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ModifyCartDto {
-    private Integer productId;
-    private Integer userId;
-    private Integer quantity;
+  private Integer productId;
+  private Integer userId;
+  private Integer quantity;
 
-    public Cart convertDtoToEntity(){
-        Cart cart = new Cart();
-        CartId cartId = new CartId();
-        cartId.setProductId(this.productId);
-        cartId.setUserId(this.userId);
-        cart.setId(cartId);
-        cart.setQuantity(this.quantity);
-        return cart;
-    }
+  public Cart convertDtoToEntity() {
+    Cart cart = new Cart();
+    CartId cartId = new CartId();
+    cartId.setProductId(this.productId);
+    cartId.setUserId(this.userId);
+    cart.setId(cartId);
+    cart.setQuantity(this.quantity);
+    return cart;
+  }
 }

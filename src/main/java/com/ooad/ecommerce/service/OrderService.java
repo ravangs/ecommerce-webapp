@@ -6,13 +6,12 @@ import com.ooad.ecommerce.model.OrderDetailId;
 import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.repository.OrderDetailRepository;
 import com.ooad.ecommerce.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class OrderService {
@@ -22,12 +21,15 @@ public class OrderService {
   @Autowired private OrderDetailRepository orderDetailRepository;
 
   public void placeOrder(Integer userId, Map<Product, Integer> cartDetails) {
-    Order order = saveOrder(userId,cartDetails);
+    Order order = saveOrder(userId, cartDetails);
     saveOrderDetail(order, cartDetails);
   }
 
   private void saveOrderDetail(Order order, Map<Product, Integer> cartDetails) {
-    List<OrderDetail> orderDetails = cartDetails.entrySet().stream().map(entry -> createOrderDetailEntity(order, entry)).toList();
+    List<OrderDetail> orderDetails =
+        cartDetails.entrySet().stream()
+            .map(entry -> createOrderDetailEntity(order, entry))
+            .toList();
     orderDetailRepository.saveAll(orderDetails);
   }
 
@@ -41,9 +43,9 @@ public class OrderService {
     return orderDetail;
   }
 
-  private Order saveOrder(Integer userId, Map<Product, Integer> cartDetails){
+  private Order saveOrder(Integer userId, Map<Product, Integer> cartDetails) {
     double cost = 0;
-    for (var entry: cartDetails.entrySet()){
+    for (var entry : cartDetails.entrySet()) {
       cost += (entry.getKey().getCost() * entry.getValue());
     }
     Order order = new Order();
@@ -56,7 +58,6 @@ public class OrderService {
   public List<Order> getOrders(Integer userId) {
     return orderRepository.findAllByUserIdOrderByOrderDateDesc(userId);
   }
-
 
   public Order getOrder(Integer orderId) {
     Optional<Order> order = orderRepository.findById(orderId);
