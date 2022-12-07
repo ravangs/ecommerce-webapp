@@ -1,20 +1,15 @@
 package com.ooad.ecommerce.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "cart", schema = "ecommerce")
 public class Cart {
   @EmbeddedId private CartId id;
-
-  @NotNull
-  @JoinColumn(name = "product_id", nullable = false)
-  private Integer productId;
-
-  @NotNull
-  @JoinColumn(name = "user_id", nullable = false)
-  private Integer userId;
 
   @NotNull
   @Column(name = "quantity", nullable = false)
@@ -26,22 +21,6 @@ public class Cart {
 
   public void setId(CartId id) {
     this.id = id;
-  }
-
-  public Integer getProductId() {
-    return productId;
-  }
-
-  public void setProductId(Integer product) {
-    this.productId = product;
-  }
-
-  public Integer getUserId() {
-    return userId;
-  }
-
-  public void setUserId(Integer user) {
-    this.userId = user;
   }
 
   public Integer getQuantity() {

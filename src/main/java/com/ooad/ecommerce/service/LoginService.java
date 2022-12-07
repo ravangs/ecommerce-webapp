@@ -1,7 +1,6 @@
 package com.ooad.ecommerce.service;
 
 import com.ooad.ecommerce.dto.SignUpDto;
-import com.ooad.ecommerce.dto.UserInfoDto;
 import com.ooad.ecommerce.model.User;
 import com.ooad.ecommerce.model.UserInfo;
 import com.ooad.ecommerce.repository.UserInfoRepository;

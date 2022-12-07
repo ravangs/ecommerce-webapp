@@ -1,7 +1,6 @@
 package com.ooad.ecommerce.controller;
 
 import com.ooad.ecommerce.dto.SignUpDto;
-import com.ooad.ecommerce.dto.UserInfoDto;
 import com.ooad.ecommerce.model.UserInfo;
 import com.ooad.ecommerce.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;

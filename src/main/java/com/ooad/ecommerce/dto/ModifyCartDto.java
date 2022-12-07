@@ -1,6 +1,7 @@
 package com.ooad.ecommerce.dto;
 
 import com.ooad.ecommerce.model.Cart;
+import com.ooad.ecommerce.model.CartId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +16,10 @@ public class ModifyCartDto {
 
     public Cart convertDtoToEntity(){
         Cart cart = new Cart();
-        cart.setProductId(this.productId);
-        cart.setUserId(this.userId);
+        CartId cartId = new CartId();
+        cartId.setProductId(this.productId);
+        cartId.setUserId(this.userId);
+        cart.setId(cartId);
         cart.setQuantity(this.quantity);
         return cart;
     }

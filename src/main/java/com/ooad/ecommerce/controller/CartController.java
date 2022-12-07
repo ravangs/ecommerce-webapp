@@ -22,7 +22,7 @@ public class CartController {
   }
 
   @PostMapping(
-          value = "/cart/add",
+          value = "/cart",
           consumes = {MediaType.APPLICATION_JSON_VALUE},
           produces = {MediaType.APPLICATION_JSON_VALUE})
   public Map<Product,Integer> modifyCart(@RequestBody List<ModifyCartDto> cartEntryDetails) {

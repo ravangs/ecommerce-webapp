@@ -1,11 +1,12 @@
 package com.ooad.ecommerce.model;
 
-import java.io.Serializable;
-import java.util.Objects;
+import org.hibernate.Hibernate;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
-import org.hibernate.Hibernate;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class CartId implements Serializable {

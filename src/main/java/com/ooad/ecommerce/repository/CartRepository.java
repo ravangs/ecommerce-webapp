@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CartRepository extends JpaRepository<Cart, CartId> {
-    List<Cart> findAllByUserIdAndQuantityNot(Integer userId, Integer quantity);
+    List<Cart> findAllById_UserIdAndQuantityNot(Integer userId, Integer quantity);
 
-    void deleteAllByUserId(Integer userId);
+    void deleteAllById_UserId(Integer userId);
 
 }

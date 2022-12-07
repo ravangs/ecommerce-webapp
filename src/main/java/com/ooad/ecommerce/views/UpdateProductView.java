@@ -15,8 +15,9 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import java.io.InputStream;
+
 import javax.annotation.security.PermitAll;
+import java.io.InputStream;
 
 @PageTitle("Buffkart - Update Product")
 @Route(value = "update-product", layout = MainLayout.class)

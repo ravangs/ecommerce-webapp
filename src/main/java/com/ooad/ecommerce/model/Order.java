@@ -1,8 +1,8 @@
 package com.ooad.ecommerce.model;
 
-import java.time.Instant;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.Instant;
 
 @Entity
 @Table(
@@ -15,7 +15,7 @@ public class Order {
   private Integer id;
 
   @NotNull
-  @JoinColumn(name = "user_id", nullable = false)
+  @Column(name = "user_id", nullable = false)
   private Integer userId;
 
   @NotNull
