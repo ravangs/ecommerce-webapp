@@ -2,8 +2,7 @@ package com.ooad.ecommerce.dto;
 
 import com.ooad.ecommerce.model.Cart;
 import com.ooad.ecommerce.model.CartId;
-import com.ooad.ecommerce.model.Product;
-import com.ooad.ecommerce.model.UserInfo;
+
 import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -16,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CartDto implements Serializable {
   private CartId id;
-  private Product product;
-  private UserInfo user;
+  private Integer productId;
+  private Integer userId;
   @NotNull private Integer quantity;
 }
