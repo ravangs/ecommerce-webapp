@@ -16,6 +16,10 @@ public class AuthService {
     return authenticatedUser.get().get().getId();
   }
 
+  public String getUserType() {
+    return authenticatedUser.get().get().getUserType();
+  }
+
   public String getImgPath() {
     return imgPath;
   }

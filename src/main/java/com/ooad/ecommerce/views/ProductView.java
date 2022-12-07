@@ -2,7 +2,13 @@ package com.ooad.ecommerce.views;
 
 import com.ooad.ecommerce.controller.ProductController;
 import com.ooad.ecommerce.dto.ProductDto;
+import com.ooad.ecommerce.service.UpdateProductHelperService;
+import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import javax.annotation.security.PermitAll;
@@ -14,9 +20,12 @@ public class ProductView extends VerticalLayout implements BeforeEnterObserver {
 
   Integer productId;
   ProductController productController;
+  UpdateProductHelperService updateProductHelperService;
 
-  ProductView(ProductController productController) {
+  ProductView(
+      ProductController productController, UpdateProductHelperService updateProductHelperService) {
     this.productController = productController;
+    this.updateProductHelperService = updateProductHelperService;
   }
 
   @Override
@@ -50,9 +59,42 @@ public class ProductView extends VerticalLayout implements BeforeEnterObserver {
     rightPanel.addClassName("right-column");
     Div productDetails = new Div();
     productDetails.addClassName("product-description");
-    productDetails.add(new H1(product.getProductName()));
-    productDetails.add(new H3(product.getProductInfo()));
-    productDetails.add(new H2("Cost: " + product.getCost()));
+
+    Div productName = new Div();
+    Paragraph productNameValue = new Paragraph(product.getProductName());
+    productName.addClassName("product-name");
+    productNameValue.addClassName("product-name-value");
+
+    Button editButton = new Button(new Icon(VaadinIcon.PENCIL));
+    editButton.addThemeVariants(ButtonVariant.LUMO_ICON);
+    editButton.setText("Edit Product");
+    editButton.addClickListener(
+        e -> {
+          this.updateProductHelperService.setProduct(product);
+          UI.getCurrent().navigate("update-product");
+        });
+    editButton.setClassName("product-edit-button");
+    productName.add(productNameValue, editButton);
+
+    Div productInfo = new Div();
+    Paragraph productInfoValue = new Paragraph(product.getProductInfo());
+    productInfo.add(productInfoValue);
+    productInfo.addClassName("product-info");
+    productInfoValue.addClassName("product-info-value");
+
+    Div productStock = new Div();
+    Paragraph productStockValue = new Paragraph("Stock Remaining: " + product.getStock());
+    productStock.add(productStockValue);
+    productStock.addClassName("product-stock");
+    productStockValue.addClassName("product-stock-value");
+
+    Div productCost = new Div();
+    Paragraph productCostValue = new Paragraph("Cost: " + product.getCost());
+    productCost.add(productCostValue);
+    productCost.addClassName("product-cost");
+    productCostValue.addClassName("product-cost-value");
+
+    productDetails.add(productName, productInfo, productStock, productCost);
     rightPanel.add(productDetails);
     return rightPanel;
   }
