@@ -22,7 +22,8 @@ public class ProductView extends VerticalLayout implements BeforeEnterObserver {
   ProductController productController;
   UpdateProductHelperService updateProductHelperService;
 
-  ProductView(ProductController productController, UpdateProductHelperService updateProductHelperService) {
+  ProductView(
+      ProductController productController, UpdateProductHelperService updateProductHelperService) {
     this.productController = productController;
     this.updateProductHelperService = updateProductHelperService;
   }

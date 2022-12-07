@@ -8,7 +8,6 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
-
 import javax.annotation.security.PermitAll;
 
 @Route
@@ -16,7 +15,7 @@ import javax.annotation.security.PermitAll;
 @RouteAlias(value = "", layout = MainLayout.class)
 @PermitAll
 public class HomepageView extends HorizontalLayout {
-  public HomepageView( AuthService authService, CatalogController catalogController) {
+  public HomepageView(AuthService authService, CatalogController catalogController) {
     if (authService.getUserType().equals("vendor")) {
       add(new ProductCatalogView(authService, catalogController, new VendorHomepageRenderer()));
     } else {
