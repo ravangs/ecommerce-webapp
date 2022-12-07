@@ -1,21 +1,20 @@
 package com.ooad.ecommerce.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "favourite", schema = "ecommerce")
 public class Favourite {
   @EmbeddedId private FavouriteId id;
 
-  @MapsId("productId")
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @NotNull
   @JoinColumn(name = "product_id", nullable = false)
-  private Product product;
+  private Integer productId;
 
-  @MapsId("userId")
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @NotNull
   @JoinColumn(name = "user_id", nullable = false)
-  private User user;
+  private Integer userId;
 
   public FavouriteId getId() {
     return id;
@@ -25,19 +24,19 @@ public class Favourite {
     this.id = id;
   }
 
-  public Product getProduct() {
-    return product;
+  public Integer getProductId() {
+    return productId;
   }
 
-  public void setProduct(Product product) {
-    this.product = product;
+  public void setProductId(Integer product) {
+    this.productId = product;
   }
 
-  public User getUser() {
-    return user;
+  public Integer getUserId() {
+    return userId;
   }
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setUserId(Integer user) {
+    this.userId = user;
   }
 }

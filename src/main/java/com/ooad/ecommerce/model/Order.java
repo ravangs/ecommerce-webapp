@@ -15,9 +15,8 @@ public class Order {
   private Integer id;
 
   @NotNull
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "user_id", nullable = false)
-  private User user;
+  private Integer userId;
 
   @NotNull
   @Column(name = "order_date", nullable = false)
@@ -35,12 +34,12 @@ public class Order {
     this.id = id;
   }
 
-  public User getUser() {
-    return user;
+  public Integer getUserId() {
+    return userId;
   }
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setUserId(Integer user) {
+    this.userId = user;
   }
 
   public Instant getOrderDate() {

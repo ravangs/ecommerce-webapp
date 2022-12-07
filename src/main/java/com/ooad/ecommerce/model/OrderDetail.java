@@ -8,15 +8,13 @@ import javax.validation.constraints.NotNull;
 public class OrderDetail {
   @EmbeddedId private OrderDetailId id;
 
-  @MapsId("orderId")
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "order_id", nullable = false)
-  private Order order;
+  @NotNull
+  @Column(name = "order_id", nullable = false)
+  private Integer orderId;
 
-  @MapsId("productId")
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "product_id", nullable = false)
-  private Product product;
+  @NotNull
+  @Column(name = "product_id", nullable = false)
+  private Integer productId;
 
   @NotNull
   @Column(name = "quantity", nullable = false)
@@ -30,20 +28,20 @@ public class OrderDetail {
     this.id = id;
   }
 
-  public Order getOrder() {
-    return order;
+  public Integer getOrderId() {
+    return orderId;
   }
 
-  public void setOrder(Order order) {
-    this.order = order;
+  public void setOrderId(Integer order) {
+    this.orderId = order;
   }
 
-  public Product getProduct() {
-    return product;
+  public Integer getProductId() {
+    return productId;
   }
 
-  public void setProduct(Product product) {
-    this.product = product;
+  public void setProductId(Integer product) {
+    this.productId = product;
   }
 
   public Integer getQuantity() {

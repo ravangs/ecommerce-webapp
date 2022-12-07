@@ -11,11 +11,6 @@ public class UserInfo {
   @Column(name = "user_id", nullable = false)
   private Integer id;
 
-  @MapsId
-  @OneToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "user_id", nullable = false)
-  private User user;
-
   @Size(max = 63)
   @NotNull
   @Column(name = "first_name", nullable = false, length = 63)
@@ -41,14 +36,6 @@ public class UserInfo {
 
   public void setId(Integer id) {
     this.id = id;
-  }
-
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
   }
 
   public String getFirstName() {
