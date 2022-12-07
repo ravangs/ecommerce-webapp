@@ -15,14 +15,13 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.PermitAll;
 import java.io.InputStream;
+import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Update Product")
 @Route(value = "update-product", layout = MainLayout.class)
 @PermitAll
-public class UpdateProductView  extends VerticalLayout {
+public class UpdateProductView extends VerticalLayout {
   AuthService authService;
   VendorService vendorService;
   UpdateProductHelperService updateProductHelperService;
@@ -31,7 +30,10 @@ public class UpdateProductView  extends VerticalLayout {
   String fileName;
   InputStream inputStream;
 
-  public UpdateProductView(AuthService authService, VendorService vendorService, UpdateProductHelperService updateProductHelperService) {
+  public UpdateProductView(
+      AuthService authService,
+      VendorService vendorService,
+      UpdateProductHelperService updateProductHelperService) {
     this.authService = authService;
     this.vendorService = vendorService;
     this.updateProductHelperService = updateProductHelperService;
@@ -43,9 +45,12 @@ public class UpdateProductView  extends VerticalLayout {
     TextField stock = new TextField("Stock");
     TextField cost = new TextField("Cost");
 
-
-    binder.forField(productName).bind(ExistingProduct::getProductName, ExistingProduct::setProductName);
-    binder.forField(productInfo).bind(ExistingProduct::getProductInfo, ExistingProduct::setProductInfo);
+    binder
+        .forField(productName)
+        .bind(ExistingProduct::getProductName, ExistingProduct::setProductName);
+    binder
+        .forField(productInfo)
+        .bind(ExistingProduct::getProductInfo, ExistingProduct::setProductInfo);
     binder.forField(stock).bind(ExistingProduct::getStock, ExistingProduct::setStock);
     binder.forField(cost).bind(ExistingProduct::getCost, ExistingProduct::setCost);
     product = convertProductToExistingProduct(this.updateProductHelperService.getProduct());
@@ -110,7 +115,6 @@ class ExistingProduct {
   Integer vendorId;
   Integer id;
 
-
   public Integer getId() {
     return id;
   }
@@ -118,6 +122,7 @@ class ExistingProduct {
   public void setId(Integer id) {
     this.id = id;
   }
+
   public String getProductImagePath() {
     return productImagePath;
   }
