@@ -9,6 +9,11 @@ vaadin-app-layout[primary-section="drawer"]::part(navbar) {
 
 .user-icon {
     margin-left: auto;
+    display: flex;
+}
+
+.app-header {
+    cursor: pointer;
 }
 
 .card {
@@ -90,9 +95,74 @@ vaadin-app-layout[primary-section="drawer"]::part(navbar) {
 }
 
 .product-info {
-    height: 25rem;
+    height: 20rem;
 }
 
 .product-edit-button {
     margin-left: 1.5rem;
+}
+
+.product-stock {
+    display: flex;
+}
+
+.product-stock-value {
+    margin-right: 1rem;
+}
+
+.cart-button {
+    margin-right: 1rem;
+}
+
+.cart-item {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    height: 16rem;
+    display: flex;
+    margin: 0.5rem;
+}
+
+.cart-item-image {
+    width: 18.75rem;
+}
+
+.cart-item-info {
+    font-size: 1.5rem;
+    padding: 0.5rem 0.5rem;
+}
+
+.cart-summary {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    margin: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-cost-text {
+    margin-left: 0.5rem;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.checkout-button {
+    margin-right: 0.5rem;
+}
+
+.order-item {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    height: 8rem;
+}
+
+.order-item-info {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    font-weight: 600;
 }

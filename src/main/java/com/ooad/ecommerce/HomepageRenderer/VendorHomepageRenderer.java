@@ -15,6 +15,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import java.util.List;
 
+// This is an example of Strategy Pattern
+// This is a Concrete Algorithm Class in the pattern
+
 @Route
 public class VendorHomepageRenderer extends VerticalLayout implements RenderBehavior {
 
@@ -26,13 +29,14 @@ public class VendorHomepageRenderer extends VerticalLayout implements RenderBeha
     plusButton.setText("Add Product");
     plusButton.addClickListener(
         e -> {
+          // This is an example of command pattern as we are assigning a command to the click event
           UI.getCurrent().navigate("new-product");
         });
     List<ProductDto> products = catalogController.getCurrentVendorProducts(authService.getUserId());
     Div cards = new Div();
     cards.addClassName("row");
     for (ProductDto product : products) {
-      cards.add(cardLayoutHelper.createColumn(product));
+      cards.add(cardLayoutHelper.createColumn(product, authService.getUserType()));
     }
     add(cards, plusButton);
     this.setPadding(false);

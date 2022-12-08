@@ -10,6 +10,9 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import com.ooad.ecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,9 @@ public class OrderService {
   @Autowired private OrderRepository orderRepository;
 
   @Autowired private OrderDetailRepository orderDetailRepository;
+
+
+  @Autowired private ProductRepository productRepository;
 
   public void placeOrder(Integer userId, Map<Product, Integer> cartDetails) {
     Order order = saveOrder(userId, cartDetails);
@@ -59,8 +65,16 @@ public class OrderService {
     return orderRepository.findAllByUserIdOrderByOrderDateDesc(userId);
   }
 
-  public Order getOrder(Integer orderId) {
-    Optional<Order> order = orderRepository.findById(orderId);
-    return order.orElseGet(Order::new);
+  public Map<Product, Integer> getOrder(Integer orderId) {
+    List<OrderDetail> orderDetails = orderDetailRepository.findAllById_OrderId(orderId);
+    List<Product> products =
+        productRepository.findAllById(
+            orderDetails.stream().map(orderDetail -> orderDetail.getId().getProductId()).toList());
+    Map<Integer, Product> productMap =
+        products.stream().collect(Collectors.toMap(Product::getId, product -> product));
+    return orderDetails.stream()
+        .collect(
+            Collectors.toMap(
+                entry -> productMap.get(entry.getId().getProductId()), OrderDetail::getQuantity));
   }
 }

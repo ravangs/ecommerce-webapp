@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+
 @RestController
 @RequestMapping("/v1/api")
 public class CartController {
@@ -29,6 +31,7 @@ public class CartController {
   }
 
   @PutMapping(value = "/cart/clear/{userId}")
+  @Transactional
   public void clearCart(@PathVariable Integer userId) {
     cartService.clearCart(userId);
   }

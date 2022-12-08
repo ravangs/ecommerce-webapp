@@ -1,9 +1,12 @@
 package com.ooad.ecommerce.controller;
 
 import com.ooad.ecommerce.model.Order;
+import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.service.CartService;
 import com.ooad.ecommerce.service.OrderService;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +30,7 @@ public class OrderController {
   }
 
   @GetMapping(value = "/order/{orderId}")
-  public Order getOrderByOrderId(@PathVariable Integer orderId) {
+  public Map<Product, Integer> getOrderByOrderId(@PathVariable Integer orderId) {
     return orderService.getOrder(orderId);
   }
 }

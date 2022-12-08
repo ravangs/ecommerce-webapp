@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class CartService {
 
@@ -39,6 +41,7 @@ public class CartService {
     return getCartDetails(cartList.get(0).getId().getUserId());
   }
 
+  @Transactional
   public void clearCart(Integer userId) {
     cartRepository.deleteAllById_UserId(userId);
   }

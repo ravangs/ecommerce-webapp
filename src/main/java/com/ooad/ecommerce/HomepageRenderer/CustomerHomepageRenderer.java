@@ -9,6 +9,10 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import java.util.List;
 
+
+// This is an example of Strategy Pattern
+// This is a Concrete Algorithm Class in the pattern
+
 public class CustomerHomepageRenderer extends HorizontalLayout implements RenderBehavior {
 
   @Override
@@ -18,7 +22,7 @@ public class CustomerHomepageRenderer extends HorizontalLayout implements Render
     Div cards = new Div();
     cards.addClassName("row");
     for (ProductDto product : products) {
-      cards.add(cardLayoutHelper.createColumn(product));
+      cards.add(cardLayoutHelper.createColumn(product, authService.getUserType()));
     }
     add(cards);
     return this;

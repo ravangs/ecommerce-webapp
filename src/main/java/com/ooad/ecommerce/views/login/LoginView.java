@@ -1,6 +1,11 @@
 package com.ooad.ecommerce.views.login;
 
 import com.ooad.ecommerce.security.AuthenticatedUser;
+import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.login.LoginForm;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEnterEvent;
@@ -19,8 +24,19 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 
   public LoginView(AuthenticatedUser authenticatedUser) {
     this.authenticatedUser = authenticatedUser;
+    lf.setForgotPasswordButtonVisible(false);
 
-    add(lf);
+    Div separator = new Div(new Paragraph("OR"));
+
+    Button signUpButton = new Button("Create an Account");
+    signUpButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+    // This is an example of Observer pattern as we are observing the click event
+    signUpButton.addClickListener(event -> {
+      // This is an example of command pattern as we are assigning a command to the click event
+      UI.getCurrent().navigate("sign-up");
+    });
+
+    add(lf, separator, signUpButton);
     setSizeFull();
     setAlignItems(Alignment.CENTER);
     setJustifyContentMode(JustifyContentMode.CENTER);
