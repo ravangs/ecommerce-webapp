@@ -7,13 +7,12 @@ import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.repository.OrderDetailRepository;
 import com.ooad.ecommerce.repository.OrderRepository;
 import com.ooad.ecommerce.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class OrderService {
@@ -63,10 +62,16 @@ public class OrderService {
     return orderRepository.findAllByUserIdOrderByOrderDateDesc(userId);
   }
 
-  public Map<Product,Integer> getOrder(Integer orderId) {
+  public Map<Product, Integer> getOrder(Integer orderId) {
     List<OrderDetail> orderDetails = orderDetailRepository.findAllById_OrderId(orderId);
-    List<Product> products = productRepository.findAllById(orderDetails.stream().map(orderDetail -> orderDetail.getId().getProductId()).toList());
-    Map<Integer, Product> productMap = products.stream().collect(Collectors.toMap(Product::getId, product -> product));
-    return orderDetails.stream().collect(Collectors.toMap(entry -> productMap.get(entry.getId().getProductId()), OrderDetail::getQuantity));
+    List<Product> products =
+        productRepository.findAllById(
+            orderDetails.stream().map(orderDetail -> orderDetail.getId().getProductId()).toList());
+    Map<Integer, Product> productMap =
+        products.stream().collect(Collectors.toMap(Product::getId, product -> product));
+    return orderDetails.stream()
+        .collect(
+            Collectors.toMap(
+                entry -> productMap.get(entry.getId().getProductId()), OrderDetail::getQuantity));
   }
 }
