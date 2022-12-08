@@ -39,10 +39,11 @@ public class MainLayout extends AppLayout {
 
     appName = new H1("Buffkart");
     appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE, "header-color");
-    appName.addClickListener(event -> {
-      // This is an example of command pattern as we are assigning a command to the click event
-      UI.getCurrent().navigate("");
-    });
+    appName.addClickListener(
+        event -> {
+          // This is an example of command pattern as we are assigning a command to the click event
+          UI.getCurrent().navigate("");
+        });
     appName.addClassName("app-header");
 
     addToNavbar(true, appName, createFooter());
@@ -77,18 +78,21 @@ public class MainLayout extends AppLayout {
         Button cart = new Button(new Icon(VaadinIcon.CART));
         cart.addClassNames("cart-button");
         cart.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-        cart.addClickListener(event -> {
-          UI.getCurrent().navigate("cart");
-        });
+        cart.addClickListener(
+            event -> {
+              UI.getCurrent().navigate("cart");
+            });
         layout.add(cart);
-        userName.getSubMenu()
+        userName
+            .getSubMenu()
             .addItem(
                 "Order History",
                 e -> {
                   UI.getCurrent().navigate("order-history");
                 });
       }
-      userName.getSubMenu()
+      userName
+          .getSubMenu()
           .addItem(
               "Sign out",
               e -> {

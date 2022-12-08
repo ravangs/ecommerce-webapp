@@ -1,13 +1,8 @@
 package com.ooad.ecommerce.views;
 
-import com.ooad.ecommerce.controller.CartController;
 import com.ooad.ecommerce.controller.OrderController;
-import com.ooad.ecommerce.model.Order;
 import com.ooad.ecommerce.model.Product;
-import com.ooad.ecommerce.service.AuthService;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
@@ -17,9 +12,8 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.PermitAll;
 import java.util.Map;
+import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Product")
 // The definition of layout is an example of composite pattern
@@ -30,9 +24,11 @@ public class OrderView extends VerticalLayout implements BeforeEnterObserver {
   Integer orderId;
 
   OrderController orderController;
+
   public OrderView(OrderController orderController) {
     this.orderController = orderController;
   }
+
   @Override
   public void beforeEnter(BeforeEnterEvent event) {
     orderId = Integer.valueOf(event.getRouteParameters().get("order_id").get());
@@ -73,5 +69,4 @@ public class OrderView extends VerticalLayout implements BeforeEnterObserver {
     card.add(cartItemDetails);
     return card;
   }
-
 }

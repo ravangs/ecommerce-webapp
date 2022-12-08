@@ -11,6 +11,6 @@ public class ProductCatalogView extends VerticalLayout {
 
   public ProductCatalogView(
       AuthService authService, CatalogController catalogController, RenderBehavior renderBehavior) {
-        add(renderBehavior.renderHomepage(authService, catalogController));
-      }
+    add(renderBehavior.renderHomepage(authService, catalogController));
+  }
 }

@@ -1,6 +1,5 @@
 package com.ooad.ecommerce.views;
 
-
 import com.ooad.ecommerce.controller.CartController;
 import com.ooad.ecommerce.controller.ProductController;
 import com.ooad.ecommerce.dto.ModifyCartDto;
@@ -17,17 +16,16 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.PermitAll;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Product")
 // The definition of layout is an example of composite pattern
 // as the UI is generated in a tree fashion with MainLayout as the root
 @Route(value = "customer-product/:product_id", layout = MainLayout.class)
 @PermitAll
-public class CustomerProductView  extends VerticalLayout implements BeforeEnterObserver {
+public class CustomerProductView extends VerticalLayout implements BeforeEnterObserver {
 
   Integer productId;
   ProductController productController;
@@ -36,7 +34,8 @@ public class CustomerProductView  extends VerticalLayout implements BeforeEnterO
 
   AuthService authService;
 
-  CustomerProductView(ProductController productController, CartController cartController, AuthService authService) {
+  CustomerProductView(
+      ProductController productController, CartController cartController, AuthService authService) {
     this.productController = productController;
     this.cartController = cartController;
     this.authService = authService;
@@ -117,14 +116,19 @@ public class CustomerProductView  extends VerticalLayout implements BeforeEnterO
 
   public void addProductToCart(Integer quantity) {
     List<ModifyCartDto> cart = new ArrayList<>();
-    ModifyCartDto cartItem = ModifyCartDto.builder().productId(productId).userId(authService.getUserId()).quantity(quantity).build();
+    ModifyCartDto cartItem =
+        ModifyCartDto.builder()
+            .productId(productId)
+            .userId(authService.getUserId())
+            .quantity(quantity)
+            .build();
     cart.add(cartItem);
     this.cartController.modifyCart(cart);
   }
 
   public List<Integer> getQuantityOptions(Integer stock) {
     List<Integer> quantity = new ArrayList<>();
-    for(int i = 1; i <= stock; i++) {
+    for (int i = 1; i <= stock; i++) {
       quantity.add(i);
     }
     return quantity;

@@ -6,13 +6,11 @@ import com.ooad.ecommerce.model.OrderDetailId;
 import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.repository.OrderDetailRepository;
 import com.ooad.ecommerce.repository.OrderRepository;
+import com.ooad.ecommerce.repository.ProductRepository;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
-
-import com.ooad.ecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +20,6 @@ public class OrderService {
   @Autowired private OrderRepository orderRepository;
 
   @Autowired private OrderDetailRepository orderDetailRepository;
-
 
   @Autowired private ProductRepository productRepository;
 
