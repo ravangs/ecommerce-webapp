@@ -5,10 +5,9 @@ import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.service.CartService;
 import com.ooad.ecommerce.service.OrderService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/api")
@@ -30,7 +29,7 @@ public class OrderController {
   }
 
   @GetMapping(value = "/order/{orderId}")
-  public Map<Product,Integer> getOrderByOrderId(@PathVariable Integer orderId){
+  public Map<Product, Integer> getOrderByOrderId(@PathVariable Integer orderId) {
     return orderService.getOrder(orderId);
   }
 }
