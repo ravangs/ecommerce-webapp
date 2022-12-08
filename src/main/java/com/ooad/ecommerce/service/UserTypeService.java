@@ -1,9 +1,8 @@
 package com.ooad.ecommerce.service;
 
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserTypeService {
@@ -14,6 +13,7 @@ public class UserTypeService {
     userTypes.add("Vendor");
     userTypes.add("Customer");
   }
+
   public List<String> getUserTypes() {
     return userTypes;
   }

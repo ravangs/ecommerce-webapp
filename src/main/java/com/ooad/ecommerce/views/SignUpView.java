@@ -1,7 +1,6 @@
 package com.ooad.ecommerce.views;
 
 import com.ooad.ecommerce.controller.LoginController;
-import com.ooad.ecommerce.dto.ProductDto;
 import com.ooad.ecommerce.dto.SignUpDto;
 import com.ooad.ecommerce.service.UserTypeService;
 import com.vaadin.flow.component.UI;
@@ -15,14 +14,11 @@ import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-
-
 
 @PageTitle("Buffkart - Sign Up")
 @Route(value = "sign-up")
@@ -55,8 +51,6 @@ public class SignUpView extends VerticalLayout {
     binder.forField(lastName).bind(NewUser::getLastName, NewUser::setLastName);
     binder.forField(mailId).bind(NewUser::getMailId, NewUser::setMailId);
     binder.forField(shippingAddress).bind(NewUser::getShippingAddress, NewUser::setShippingAddress);
-
-
 
     FormLayout signUpForm = new FormLayout();
     signUpForm.setResponsiveSteps(new FormLayout.ResponsiveStep("0", 1));
@@ -98,7 +92,6 @@ public class SignUpView extends VerticalLayout {
         .shippingAddress(newUser.getShippingAddress().getBytes())
         .build();
   }
-
 }
 
 class NewUser {

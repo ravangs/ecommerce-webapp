@@ -11,9 +11,8 @@ import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.PermitAll;
 import java.util.Map;
+import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Cart")
 // The definition of layout is an example of composite pattern
@@ -22,7 +21,8 @@ import java.util.Map;
 @PermitAll
 public class CartView extends VerticalLayout {
 
-  public CartView(CartController cartController, OrderController orderController, AuthService authService) {
+  public CartView(
+      CartController cartController, OrderController orderController, AuthService authService) {
     add(new H2("Cart"));
     Double total = 0.0;
     Map<Product, Integer> cartItems = cartController.getCartDetails(authService.getUserId());
@@ -36,10 +36,11 @@ public class CartView extends VerticalLayout {
 
     Button checkoutButton = new Button("Checkout");
     checkoutButton.addClassName("checkout-button");
-    checkoutButton.addClickListener(event -> {
-      orderController.placeOrder(authService.getUserId());
-      UI.getCurrent().navigate("");
-    });
+    checkoutButton.addClickListener(
+        event -> {
+          orderController.placeOrder(authService.getUserId());
+          UI.getCurrent().navigate("");
+        });
 
     Div cartSummary = new Div();
     cartSummary.addClassName("cart-summary");

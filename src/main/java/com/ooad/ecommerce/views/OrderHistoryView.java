@@ -6,18 +6,15 @@ import com.ooad.ecommerce.service.AuthService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.PermitAll;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
+import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Order History")
 // The definition of layout is an example of composite pattern
@@ -40,7 +37,7 @@ public class OrderHistoryView extends VerticalLayout {
 
     SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
     String formattedDate = formatter.format(Date.from(order.getOrderDate()));
-    Paragraph orderDate = new Paragraph("Order Date: " +  formattedDate);
+    Paragraph orderDate = new Paragraph("Order Date: " + formattedDate);
     orderDate.addClassName("order-item-info");
 
     Paragraph orderTotal = new Paragraph("Total: " + order.getTotalCost());
@@ -49,9 +46,10 @@ public class OrderHistoryView extends VerticalLayout {
     Div orderItem = new Div();
     orderItem.addClassName("order-item");
     orderItem.add(orderId, orderDate, orderTotal);
-    orderItem.addClickListener(event -> {
-      UI.getCurrent().navigate("order/" + order.getId());
-    });
+    orderItem.addClickListener(
+        event -> {
+          UI.getCurrent().navigate("order/" + order.getId());
+        });
 
     return orderItem;
   }

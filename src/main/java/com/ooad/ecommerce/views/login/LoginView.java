@@ -31,10 +31,11 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     Button signUpButton = new Button("Create an Account");
     signUpButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
     // This is an example of Observer pattern as we are observing the click event
-    signUpButton.addClickListener(event -> {
-      // This is an example of command pattern as we are assigning a command to the click event
-      UI.getCurrent().navigate("sign-up");
-    });
+    signUpButton.addClickListener(
+        event -> {
+          // This is an example of command pattern as we are assigning a command to the click event
+          UI.getCurrent().navigate("sign-up");
+        });
 
     add(lf, separator, signUpButton);
     setSizeFull();

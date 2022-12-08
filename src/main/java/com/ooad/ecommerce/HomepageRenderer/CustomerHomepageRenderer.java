@@ -9,7 +9,6 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import java.util.List;
 
-
 // This is an example of Strategy Pattern
 // This is a Concrete Algorithm Class in the pattern
 
