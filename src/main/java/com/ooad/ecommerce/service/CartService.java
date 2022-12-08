@@ -8,6 +8,7 @@ import com.ooad.ecommerce.repository.ProductRepository;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,7 @@ public class CartService {
     return getCartDetails(cartList.get(0).getId().getUserId());
   }
 
+  @Transactional
   public void clearCart(Integer userId) {
     cartRepository.deleteAllById_UserId(userId);
   }

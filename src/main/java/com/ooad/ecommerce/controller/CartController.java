@@ -5,6 +5,7 @@ import com.ooad.ecommerce.model.Product;
 import com.ooad.ecommerce.service.CartService;
 import java.util.List;
 import java.util.Map;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,7 @@ public class CartController {
   }
 
   @PutMapping(value = "/cart/clear/{userId}")
+  @Transactional
   public void clearCart(@PathVariable Integer userId) {
     cartService.clearCart(userId);
   }

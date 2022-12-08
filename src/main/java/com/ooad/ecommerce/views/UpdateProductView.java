@@ -8,6 +8,7 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
@@ -19,6 +20,8 @@ import java.io.InputStream;
 import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Update Product")
+// The definition of layout is an example of composite pattern
+// as the UI is generated in a tree fashion with MainLayout as the root
 @Route(value = "update-product", layout = MainLayout.class)
 @PermitAll
 public class UpdateProductView extends VerticalLayout {
@@ -34,6 +37,9 @@ public class UpdateProductView extends VerticalLayout {
       AuthService authService,
       VendorService vendorService,
       UpdateProductHelperService updateProductHelperService) {
+
+    add(new H2("Edit Product"));
+
     this.authService = authService;
     this.vendorService = vendorService;
     this.updateProductHelperService = updateProductHelperService;

@@ -3,12 +3,14 @@ package com.ooad.ecommerce.dto;
 import com.ooad.ecommerce.model.Cart;
 import com.ooad.ecommerce.model.CartId;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ModifyCartDto {
   private Integer productId;
   private Integer userId;

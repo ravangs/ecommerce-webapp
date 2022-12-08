@@ -2,14 +2,15 @@ package com.ooad.ecommerce.views;
 
 import com.ooad.ecommerce.model.User;
 import com.ooad.ecommerce.security.AuthenticatedUser;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.contextmenu.MenuItem;
-import com.vaadin.flow.component.html.Anchor;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Footer;
-import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
@@ -38,6 +39,12 @@ public class MainLayout extends AppLayout {
 
     appName = new H1("Buffkart");
     appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE, "header-color");
+    appName.addClickListener(
+        event -> {
+          // This is an example of command pattern as we are assigning a command to the click event
+          UI.getCurrent().navigate("");
+        });
+    appName.addClassName("app-header");
 
     addToNavbar(true, appName, createFooter());
   }
@@ -67,6 +74,23 @@ public class MainLayout extends AppLayout {
       div.getElement().getStyle().set("align-items", "center");
       div.getElement().getStyle().set("gap", "var(--lumo-space-s)");
       userName.add(div);
+      if (user.getUserType().equals("customer")) {
+        Button cart = new Button(new Icon(VaadinIcon.CART));
+        cart.addClassNames("cart-button");
+        cart.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+        cart.addClickListener(
+            event -> {
+              UI.getCurrent().navigate("cart");
+            });
+        layout.add(cart);
+        userName
+            .getSubMenu()
+            .addItem(
+                "Order History",
+                e -> {
+                  UI.getCurrent().navigate("order-history");
+                });
+      }
       userName
           .getSubMenu()
           .addItem(
@@ -74,7 +98,6 @@ public class MainLayout extends AppLayout {
               e -> {
                 authenticatedUser.logout();
               });
-
       layout.add(userMenu);
     } else {
       Anchor loginLink = new Anchor("login", "Sign in");
@@ -87,7 +110,6 @@ public class MainLayout extends AppLayout {
   @Override
   protected void afterNavigation() {
     super.afterNavigation();
-    //    viewTitle.setText(getCurrentPageTitle());
   }
 
   private String getCurrentPageTitle() {

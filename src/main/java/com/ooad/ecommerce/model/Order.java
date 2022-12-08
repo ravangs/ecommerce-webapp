@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Order {
   @Id
   @Column(name = "order_id", nullable = false)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   @NotNull

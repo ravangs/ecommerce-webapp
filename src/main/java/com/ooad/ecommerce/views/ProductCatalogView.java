@@ -9,8 +9,6 @@ import com.vaadin.flow.router.Route;
 @Route
 public class ProductCatalogView extends VerticalLayout {
 
-  RenderBehavior renderBehavior;
-
   public ProductCatalogView(
       AuthService authService, CatalogController catalogController, RenderBehavior renderBehavior) {
     add(renderBehavior.renderHomepage(authService, catalogController));

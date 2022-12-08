@@ -2,16 +2,19 @@ package com.ooad.ecommerce.dto;
 
 import com.ooad.ecommerce.model.User;
 import com.ooad.ecommerce.model.UserInfo;
+import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SignUpDto {
+@Builder
+public class SignUpDto implements Serializable {
   private Integer id;
 
   @Size(max = 63)

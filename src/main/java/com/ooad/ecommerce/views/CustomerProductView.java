@@ -1,38 +1,44 @@
 package com.ooad.ecommerce.views;
 
+import com.ooad.ecommerce.controller.CartController;
 import com.ooad.ecommerce.controller.ProductController;
+import com.ooad.ecommerce.dto.ModifyCartDto;
 import com.ooad.ecommerce.dto.ProductDto;
-import com.ooad.ecommerce.service.UpdateProductHelperService;
+import com.ooad.ecommerce.service.AuthService;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
-import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.security.PermitAll;
 
 @PageTitle("Buffkart - Product")
 // The definition of layout is an example of composite pattern
 // as the UI is generated in a tree fashion with MainLayout as the root
-@Route(value = "product/:product_id", layout = MainLayout.class)
+@Route(value = "customer-product/:product_id", layout = MainLayout.class)
 @PermitAll
-public class ProductView extends VerticalLayout implements BeforeEnterObserver {
+public class CustomerProductView extends VerticalLayout implements BeforeEnterObserver {
 
   Integer productId;
   ProductController productController;
-  UpdateProductHelperService updateProductHelperService;
 
-  ProductView(
-      ProductController productController, UpdateProductHelperService updateProductHelperService) {
+  CartController cartController;
+
+  AuthService authService;
+
+  CustomerProductView(
+      ProductController productController, CartController cartController, AuthService authService) {
     this.productController = productController;
-    this.updateProductHelperService = updateProductHelperService;
+    this.cartController = cartController;
+    this.authService = authService;
   }
 
   @Override
@@ -41,9 +47,8 @@ public class ProductView extends VerticalLayout implements BeforeEnterObserver {
     renderProductPage();
   }
 
-  // Outline for Product page referenced from https://designmodo.com/create-product-page/
   public void renderProductPage() {
-    ProductDto product = this.getProductDetails(this.productId);
+    ProductDto product = this.productController.getProductDetails(productId);
     Div container = new Div();
     container.addClassName("product-container");
     container.add(renderProductImage(product), renderProductDetails(product));
@@ -73,17 +78,7 @@ public class ProductView extends VerticalLayout implements BeforeEnterObserver {
     productName.addClassName("product-name");
     productNameValue.addClassName("product-name-value");
 
-    Button editButton = new Button(new Icon(VaadinIcon.PENCIL));
-    editButton.addThemeVariants(ButtonVariant.LUMO_ICON);
-    editButton.setText("Edit Product");
-    editButton.addClickListener(
-        e -> {
-          // This is an example of command pattern as we are assigning a command to the click event
-          this.updateProductHelperService.setProduct(product);
-          UI.getCurrent().navigate("update-product");
-        });
-    editButton.setClassName("product-edit-button");
-    productName.add(productNameValue, editButton);
+    productName.add(productNameValue);
 
     Div productInfo = new Div();
     Paragraph productInfoValue = new Paragraph(product.getProductInfo());
@@ -92,8 +87,11 @@ public class ProductView extends VerticalLayout implements BeforeEnterObserver {
     productInfoValue.addClassName("product-info-value");
 
     Div productStock = new Div();
-    Paragraph productStockValue = new Paragraph("Stock Remaining: " + product.getStock());
-    productStock.add(productStockValue);
+    Paragraph productStockValue = new Paragraph("Qty: ");
+    ComboBox<Integer> quantity = new ComboBox<>();
+    quantity.setItems(getQuantityOptions(product.getStock()));
+    quantity.setValue(1);
+    productStock.add(productStockValue, quantity);
     productStock.addClassName("product-stock");
     productStockValue.addClassName("product-stock-value");
 
@@ -103,12 +101,36 @@ public class ProductView extends VerticalLayout implements BeforeEnterObserver {
     productCost.addClassName("product-cost");
     productCostValue.addClassName("product-cost-value");
 
-    productDetails.add(productName, productInfo, productStock, productCost);
+    Button addToCart = new Button("Add to Cart");
+    addToCart.addClickListener(
+        e -> {
+          // This is an example of command pattern as we are assigning a command to the click event
+          this.addProductToCart(quantity.getValue());
+          UI.getCurrent().navigate("");
+        });
+
+    productDetails.add(productName, productInfo, productStock, productCost, addToCart);
     rightPanel.add(productDetails);
     return rightPanel;
   }
 
-  public ProductDto getProductDetails(Integer productId) {
-    return this.productController.getProductDetails(productId);
+  public void addProductToCart(Integer quantity) {
+    List<ModifyCartDto> cart = new ArrayList<>();
+    ModifyCartDto cartItem =
+        ModifyCartDto.builder()
+            .productId(productId)
+            .userId(authService.getUserId())
+            .quantity(quantity)
+            .build();
+    cart.add(cartItem);
+    this.cartController.modifyCart(cart);
+  }
+
+  public List<Integer> getQuantityOptions(Integer stock) {
+    List<Integer> quantity = new ArrayList<>();
+    for (int i = 1; i <= stock; i++) {
+      quantity.add(i);
+    }
+    return quantity;
   }
 }

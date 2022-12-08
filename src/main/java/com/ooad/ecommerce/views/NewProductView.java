@@ -7,6 +7,7 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
@@ -35,6 +36,9 @@ public class NewProductView extends VerticalLayout {
   InputStream inputStream;
 
   public NewProductView(AuthService authService, VendorService vendorService) {
+
+    add(new H2("Add Product"));
+
     this.authService = authService;
     this.vendorService = vendorService;
 
@@ -70,6 +74,7 @@ public class NewProductView extends VerticalLayout {
     submitForm.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
     submitForm.addClickListener(
         event -> {
+          // This is an example of command pattern as we are assigning a command to the click event
           createProduct();
         });
 
@@ -99,6 +104,7 @@ public class NewProductView extends VerticalLayout {
         .build();
   }
 
+  // https://stackoverflow.com/questions/12823796/java-save-an-image-in-one-specific-directory
   public void uploadImage() {
     File file = new File(this.authService.getImgPath() + fileName);
     BufferedImage bi = null;

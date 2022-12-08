@@ -2,6 +2,8 @@ package com.ooad.ecommerce.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+// This is an example of Singleton Pattern
+// In this scenario, eager instantiation has been used
 public class PlainTextPasswordEncoder implements PasswordEncoder {
 
   private static final PasswordEncoder INSTANCE = new PlainTextPasswordEncoder();
